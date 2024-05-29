@@ -1,0 +1,118 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <div class="breadcrumb-area contact-breadcrumb bg-img bg-overlay jarallax"
+         style="background-image: url({% static 'img/bg-img/18.jpg' %});">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="breadcrumb-content text-center mt-100">
+                        <h2 class="page-title">Contact Us</h2>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb justify-content-center">
+                                <li class="breadcrumb-item"><a href="{% url 'main:home' %}">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Contact Us</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <section class="google-maps-contact-info">
+        <div class="container-fluid">
+            <div class="google-maps-contact-content">
+                <div class="row">
+
+                    <div class="col-6 col-lg-3">
+                        <div class="single-contact-info">
+                            <i class="fa fa-phone" aria-hidden="true"></i>
+                            <h4>Phone</h4>
+                            <p>+998777773030</p>
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-lg-3">
+                        <div class="single-contact-info">
+                            <i class="fa fa-map-marker" aria-hidden="true"></i>
+                            <h4>Address</h4>
+                            <p>Амир Темур шоҳ кўчаси 129b, Тоshkent, Toshkent</p>
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-lg-3">
+                        <div class="single-contact-info">
+                            <i class="fa fa-clock-o" aria-hidden="true"></i>
+                            <h4>Open time</h4>
+                            <p>09:00 am to 21:00 pm</p>
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-lg-3">
+                        <div class="single-contact-info">
+                            <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                            <h4>Email</h4>
+                            <p>Farobiy IT Academy @gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="google-maps">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11979.410871610571!2d69.2878617!3d41.3555549!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38aef3874b503727%3A0x87d7b3568c7badc8!2sFarobiy%20IT%20Academy!5e0!3m2!1sru!2s!4v1707653942728!5m2!1sru!2s"
+                            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <div class="roberto-contact-form-area section-padding-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+
+                    <div class="section-heading text-center wow fadeInUp" data-wow-delay="100ms">
+                        <h6>Contact Us</h6>
+                        <h2>Leave Message</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+
+                    <div class="roberto-contact-form">
+                        <form method="post">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-12 col-lg-6 wow fadeInUp" data-wow-delay="100ms">
+{#                                    <input type="text" name="message-name" class="form-control mb-30"#}
+{#                                           placeholder="Your Name">#}
+                                    {{ form.name }}
+                                </div>
+                                <div class="col-12 col-lg-6 wow fadeInUp" data-wow-delay="100ms">
+{#                                    <input type="email" name="message-email" class="form-control mb-30"#}
+{#                                           placeholder="Your Email">#}
+                                    {{ form.email }}
+                                </div>
+                                <div class="col-12 wow fadeInUp" data-wow-delay="100ms">
+{#                                <textarea name="message" class="form-control mb-30"#}
+{#                                          placeholder="Your Message"></textarea>#}
+                                    {{ form.message }}
+                                </div>
+                                <div class="col-12 text-center wow fadeInUp" data-wow-delay="100ms">
+                                    <button type="submit" class="btn roberto-btn mt-15">Send Message</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

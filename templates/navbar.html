@@ -1,0 +1,70 @@
+{% load static %}
+<div id="preloader">
+    <div class="loader"></div>
+</div>
+
+
+<header class="header-area">
+
+    <div class="search-form d-flex align-items-center">
+        <div class="container">
+            <form action="https://preview.colorlib.com/theme/roberto/index.html" method="get">
+                <input type="search" name="search-form-input" id="searchFormInput"
+                       placeholder="Type your keyword ...">
+                <button type="submit"><i class="icon_search"></i></button>
+            </form>
+        </div>
+    </div>
+    <div class="main-header-area">
+        <div class="classy-nav-container breakpoint-off">
+            <div class="container">
+
+                <nav class="classy-navbar justify-content-between" id="robertoNav">
+
+                    <a class="nav-brand" href="index-2.html"><img src="{% static 'img/core-img/logo.png' %}"
+                                                                  alt></a>
+
+                    <div class="classy-navbar-toggler">
+                        <span class="navbarToggler"><span></span><span></span><span></span></span>
+                    </div>
+
+                    <div class="classy-menu">
+
+                        <div class="classycloseIcon">
+                            <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                        </div>
+
+                        <div class="classynav">
+                            <ul id="nav">
+                                <li class="active"><a href="{% url 'main:home' %}">Home</a></li>
+                                <li><a href="{% url 'rooms:rooms_list' %}">Rooms</a></li>
+                                <li><a href="{% url 'main:about' %}">About Us</a></li>
+                                <li><a href="{% url 'blog:blog_list' %}">Blog_list</a></li>
+                                <li><a href="{% url 'services:services_list' %}">Services</a></li>
+                                <li><a href="{% url 'main:contact' %}">Contact</a></li>
+                            </ul>
+
+                            <div class="search-btn ml-4">
+                                <i class="fa fa-search" aria-hidden="true"></i>
+                            </div>
+                            {% if request.user.is_authenticated %}
+                                <div class="ml-15"><a href="#">{{ request.user.username }}</a></div>
+                            {% endif %}
+                            <div class=" ml-4">
+
+                                {% if request.user.is_authenticated %}
+                                    <a href="{% url 'account:logout' %}">Log Out<i class="fa fa-user"
+                                                                                   aria-hidden="true"></i></a>
+                                {% else %}
+                                    <a href="{% url 'account:login' %}">Login<i class="fa fa-user"
+                                                                                aria-hidden="true"></i></a>
+                                {% endif %}
+                            </div>
+                        </div>
+
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>

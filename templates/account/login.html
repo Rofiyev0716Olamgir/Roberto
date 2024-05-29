@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="breadcrumb-area bg-img bg-overlay jarallax"
+         style="background-image: url({% static 'img/core-img/fotolia_900x600_10-1200x530.jpg' %});">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12">
+                    <div class="breadcrumb-content text-center">
+                        <h2 class="page-title">Login</h2>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb justify-content-center">
+                                <li class="breadcrumb-item"><a href="{% url 'main:home' %}">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Login</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row justify-content-md-center bg-white py-5">
+        <div class="col-md-6">
+
+
+            <div style="margin: 50px 0" class="container">
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="form-group mb-3">
+                        <label for="Login">Login</label>
+                        {{ form.username }}
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="exampleInputPassword1">Password</label>
+                        {{ form.password }}
+                    </div>
+                    <div class="justify-content-between d-flex">
+                        <div class="mt-2">
+                            <span>If you have not an account <a href="{% url "account:register" %}"> Register</a></span>
+                        </div>
+                        <button type="submit" class="btn btn-primary ">Login</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
